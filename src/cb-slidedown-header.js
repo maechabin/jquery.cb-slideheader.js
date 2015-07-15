@@ -18,8 +18,8 @@
     this.config = {};
     this.options = options;
     this.defaults = {
-      slidePoint: 356,
-      slideDownSpeed: "500ms",
+      slidePoint: 0,
+      slideDownSpeed: "slow",
       slideUpSpeed: "slow"
     };
   };
@@ -32,18 +32,20 @@
     w.on("scroll", function () {
 
       if (w.scrollTop() > self.config.slidePoint) {
+        /*
         if (self.$element.css("display") === "block") {
           self.$element.css({"display": "none"});
         }
+        */
         self.$element.css({
           "position": "fixed",
           "top": 0,
           "left": 0,
           "opacity": .9
         });
-        self.$element.slideDown(self.config.slideDownSpeed);
+        //self.$element.slideDown(self.config.slideDownSpeed);
       } else {
-        self.$element.slideUp(self.config.slideUpSpeed);
+        //self.$element.slideUp(self.config.slideUpSpeed);
         self.$element.css({
           "position": "static"
         });
