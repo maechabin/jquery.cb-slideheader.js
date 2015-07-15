@@ -4,6 +4,10 @@
 <head>
   <meta charset="utf-8">
   <style>
+  body {
+    padding: 0;
+    margin: 0;
+  }
   header {
     background-color: #000;
     line-height: 56px;
@@ -16,7 +20,8 @@
 </head>
 
 <body>
-  <header class="cb-header">header</header>
+  <header class="header">header</header>
+  <div style="height: 300px; background-color: #000;"></div>
   <div>
     a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
         a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
@@ -24,7 +29,7 @@
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="src/cb-slidedown-header.js"></script>
   <script>
-  $(".cb-header").cbSlideDownHeader();
+  $(".header").cbSlideDownHeader();
   </script>
 </body>
 
