@@ -80,15 +80,22 @@
 
       if (self.config.headerClone === true) {
         padding = (windowHeight - headerHeight) / 2;
-        self.config.slidePoint = windowHeight + headerBarHeight;
       } else {
         padding = (windowHeight - headerHeight + headerBarHeight) / 2;
-        self.config.slidePoint = windowHeight;
       }
+      self.config.slidePoint = windowHeight;
       header2.css({
         "padding-top": padding + "px",
         "padding-bottom": padding + "px"
       });
+
+    } else {
+
+      if (self.config.headerClone === true) {
+        self.config.slidePoint = headerHeight;
+      } else {
+        self.config.slidePoint = headerHeight - headerBarHeight;
+      }
 
     }
 
