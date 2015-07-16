@@ -13,15 +13,24 @@
   "use strict";
 
   var Plugin = function (element, options) {
+
     this.element = element;
     this.$element = $(element);
     this.config = {};
     this.options = options;
     this.defaults = {
+      header2SelectorName: ".cb-header2",
+      headerClone: false,
+      fullscreenView: false,
+      width: "100%",
+      zIndex: 0,
+      boxShadow: "none",
+      opacity: 1,
       slidePoint: 0,
       slideDownSpeed: "slow",
-      slideUpSpeed: "slow"
+      slideUpSpeed: "normal"
     };
+
   };
 
   Plugin.prototype.slideHeader = function () {
@@ -30,33 +39,75 @@
     var w = $(window);
 
     w.on("scroll", function () {
-
       if (w.scrollTop() > self.config.slidePoint) {
-        /*
-        if (self.$element.css("display") === "block") {
-          self.$element.css({"display": "none"});
-        }
-        */
-        self.$element.css({
-          "position": "fixed",
-          "top": 0,
-          "left": 0,
-          "opacity": .9
+        self.$element.slideDown(self.config.slideDownSpeed).css({
+          "box-shadow": self.config.boxShadow,
+          "transition": "box-shadow .9s linear"
         });
-        //self.$element.slideDown(self.config.slideDownSpeed);
       } else {
-        //self.$element.slideUp(self.config.slideUpSpeed);
-        self.$element.css({
-          "position": "static"
+        self.$element.slideUp(self.config.slideUpSpeed).css({
+          "box-shadow": "none"
         });
       }
     });
   };
 
+  Plugin.prototype.cloneHeader = function () {
+    var self = this;
+    var clone = self.$element.clone(true);
+    clone.insertAfter(self.$element).removeClass("cb-header");
+  }
+
+  Plugin.prototype.setStyle = function () {
+    var self = this;
+    self.$element.css({
+      "opacity": self.config.opacity,
+      "width": self.config.width,
+      "z-index": self.config.zIndex
+    });
+  };
+
+  Plugin.prototype.changeHeaderHeight = function () {
+
+    var self = this;
+    var headerBarHeight = self.$element.height();
+    var header2 = $(self.config.header2selectorName);
+    var headerHeight = headerBarHeight + header2.height();
+    var windowHeight = $(window).height();
+    var padding = "";
+
+    if (headerHeight < windowHeight) {
+
+      if (self.config.headerClone === true) {
+        padding = (windowHeight - headerHeight) / 2;
+        self.config.slidePoint = windowHeight + headerBarHeight;
+      } else {
+        padding = (windowHeight - headerHeight + headerBarHeight) / 2;
+        self.config.slidePoint = windowHeight;
+      }
+      header2.css({
+        "padding-top": padding + "px",
+        "padding-bottom": padding + "px"
+      });
+
+    }
+
+  };
+
   Plugin.prototype.init = function () {
+
     this.config = $.extend({}, this.defaults, this.options);
+    if (this.config.headerClone === true) {
+      this.cloneHeader();
+    }
+    this.setStyle();
+    if (this.config.fullscreenView === true) {
+      this.changeHeaderHeight();
+    }
     this.slideHeader();
+
     return this;
+
   };
 
   $.fn.cbSlideDownHeader = function (options) {
