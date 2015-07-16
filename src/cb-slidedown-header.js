@@ -50,13 +50,14 @@
         });
       }
     });
+
   };
 
   Plugin.prototype.cloneHeader = function () {
     var self = this;
     var clone = self.$element.clone(true);
     clone.insertAfter(self.$element).removeClass("cb-header");
-  }
+  };
 
   Plugin.prototype.setStyle = function () {
     var self = this;
