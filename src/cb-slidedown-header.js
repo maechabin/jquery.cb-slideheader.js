@@ -71,7 +71,7 @@
 
     var self = this;
     var headerBarHeight = self.$element.height();
-    var header2 = $(self.config.header2selectorName);
+    var header2 = $(self.config.header2SelectorName);
     var headerHeight = headerBarHeight + header2.height();
     var windowHeight = $(window).height();
     var padding = "";

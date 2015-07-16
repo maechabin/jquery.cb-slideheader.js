@@ -21,8 +21,8 @@
 
 <body>
   <header class="cb-header">header</header>
-  <div style="height: 300px; background-color: #000;" class="cb-header2"></div>
-  <div>
+  <div style="background-color: #000;" class="cb-header2"></div>
+  <div class="cb-header2">
     a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
     a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
     a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
@@ -30,7 +30,9 @@
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="src/cb-slidedown-header.js"></script>
   <script>
-  $(".cb-header").cbSlideDownHeader();
+  $(".cb-header").cbSlideDownHeader({
+    fullscreenView: true
+  });
   </script>
 </body>
 
