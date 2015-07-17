@@ -1,6 +1,42 @@
 .cb-header {
   position: fixed;
-  top: 0;
   left: 0;
-  display: none;
+  visibility: hidden;
 }
+/*
+.slide-down {
+  animation-name: slideDown;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  transform-origin: 50% 50% 0px;
+  animation-duration: .5s;
+}
+
+@keyframes slideDown {
+  0% {
+    top: -90px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+.slide-up {
+  animation-name: slideUp;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  transform-origin: 50% 50%  0px;
+  animation-duration: .5s;
+}
+
+@keyframes slideUp {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -90px;
+  }
+}
+*/
