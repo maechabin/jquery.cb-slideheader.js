@@ -59,10 +59,6 @@
           flag = "down";
         }
 
-        //self.$element.removeClass("slide-up");
-        //self.$element.addClass("slide-down");
-
-        //self.$element.slideDown(self.config.slideDownSpeed);
       } else {
 
         if (flag === "down") {
@@ -74,10 +70,6 @@
           flag = "up";
         }
 
-        //self.$element.removeClass("slide-down");
-        //self.$element.addClass("slide-up");
-
-        //self.$element.slideUp(self.config.slideUpSpeed);
       }
     });
 
