@@ -3,22 +3,27 @@
   "use strict";
 
   if (typeof module === "object" && typeof module.exports === "object") {
+
     module.exports = factory(require("jquery"), window, document);
+
   } else {
+
     factory(jQuery, window, document);
+
   }
 
 } (function ($, window, document, undefined) {
 
   "use strict";
 
-  var Plugin = function (element, options) {
+  var Plugin = function (element, options, i) {
 
     this.element = element;
     this.$element = $(element);
     this.config = {};
     this.options = options;
     this.defaults = {
+      headerBarHeight: this.$element.height(),
       header2SelectorName: ".cb-header2",
       headerClone: false,
       fullscreenView: false,
@@ -27,8 +32,10 @@
       boxShadow: "none",
       opacity: 1,
       slidePoint: 0,
-      slideDownSpeed: "slow",
-      slideUpSpeed: "normal"
+      slideDownSpeed: "normal",
+      slideUpSpeed: "normal",
+      slideDownEasing: "swing",
+      slideUpEasing: "swing"
     };
 
   };
@@ -37,17 +44,38 @@
 
     var self = this;
     var w = $(window);
+    var flag = "up";
 
     w.on("scroll", function () {
       if (w.scrollTop() > self.config.slidePoint) {
-        self.$element.slideDown(self.config.slideDownSpeed).css({
-          "box-shadow": self.config.boxShadow,
-          "transition": "box-shadow .9s linear"
-        });
+
+        if (flag === "up") {
+          self.$element.stop().animate({
+            top: 0
+          }, self.config.slideDownSpeed, self.config.slideDownEasing).css({
+            "box-shadow": self.config.boxShadow,
+            "transition": "box-shadow .9s linear"
+          });
+          flag = "down";
+        }
+
+        //self.$element.removeClass("slide-up");
+        //self.$element.addClass("slide-down");
+
+        //self.$element.slideDown(self.config.slideDownSpeed);
       } else {
-        self.$element.slideUp(self.config.slideUpSpeed).css({
-          "box-shadow": "none"
-        });
+
+        if (flag === "down") {
+          self.$element.stop().animate({
+            top: "-" + self.config.headerBarHeight + "px"
+          }, self.config.slideUpSpeed, self.config.slideDownEasing);
+          flag = "up";
+        }
+
+        //self.$element.removeClass("slide-down");
+        //self.$element.addClass("slide-up");
+
+        //self.$element.slideUp(self.config.slideUpSpeed);
       }
     });
 
@@ -56,12 +84,18 @@
   Plugin.prototype.cloneHeader = function () {
     var self = this;
     var clone = self.$element.clone(true);
-    clone.insertAfter(self.$element).removeClass("cb-header");
+    clone.insertAfter(self.$element)
+      .removeClass("cb-header")
+      .css({
+        "z-index": 9999
+      });
   };
 
   Plugin.prototype.setStyle = function () {
     var self = this;
     self.$element.css({
+      "top": "-" + self.config.headerBarHeight + "px",
+      "visibility": "visible",
       "opacity": self.config.opacity,
       "width": self.config.width,
       "z-index": self.config.zIndex
@@ -120,8 +154,8 @@
 
   $.fn.cbSlideDownHeader = function (options) {
 
-    return this.each(function () {
-      new Plugin(this, options).init();
+    return this.each(function (i) {
+      new Plugin(this, options, i).init();
     });
 
   };
