@@ -68,7 +68,9 @@
         if (flag === "down") {
           self.$element.stop().animate({
             top: "-" + self.config.headerBarHeight + "px"
-          }, self.config.slideUpSpeed, self.config.slideDownEasing);
+          }, self.config.slideUpSpeed, self.config.slideDownEasing).css({
+            "box-shadow": "none",
+          });
           flag = "up";
         }
 
