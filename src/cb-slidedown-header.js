@@ -16,10 +16,11 @@
 
   "use strict";
 
-  var Plugin = function (element, options, i) {
+  var Plugin = function (element, options) {
 
     this.element = element;
     this.$element = $(element);
+    this.methodType = "";
     this.config = {};
     this.options = options;
     this.defaults = {
@@ -44,30 +45,36 @@
 
     var self = this;
     var w = $(window);
-    var flag = "up";
+    var top1 = (self.methodType === "slideDown") ? 0 : "-" + self.config.headerBarHeight + "px";
+    var top2 = (self.methodType === "slideDown") ? "-" + self.config.headerBarHeight + "px" : 0;
+    var style1 = {
+      "box-shadow": self.config.boxShadow,
+      "transition": "box-shadow .9s linear"
+    };
+    var style2 = {
+      "box-shadow": "none"
+    };
+    var css1 = (self.methodType === "slideDown") ? style1 : style2;
+    var css2 = (self.methodType === "slideDown") ? style2 : style1;
+    var slideFlag = "up";
 
     w.on("scroll", function () {
       if (w.scrollTop() > self.config.slidePoint) {
 
-        if (flag === "up") {
+        if (slideFlag === "up") {
           self.$element.stop().animate({
-            top: 0
-          }, self.config.slideDownSpeed, self.config.slideDownEasing).css({
-            "box-shadow": self.config.boxShadow,
-            "transition": "box-shadow .9s linear"
-          });
-          flag = "down";
+            "top": top1
+          }, self.config.slideDownSpeed, self.config.slideDownEasing).css(css1);
+          slideFlag = "down";
         }
 
       } else {
 
-        if (flag === "down") {
+        if (slideFlag === "down") {
           self.$element.stop().animate({
-            top: "-" + self.config.headerBarHeight + "px"
-          }, self.config.slideUpSpeed, self.config.slideDownEasing).css({
-            "box-shadow": "none",
-          });
-          flag = "up";
+            "top": top2
+          }, self.config.slideUpSpeed, self.config.slideDownEasing).css(css2);
+          slideFlag = "up";
         }
 
       }
@@ -87,8 +94,9 @@
 
   Plugin.prototype.setStyle = function () {
     var self = this;
+    var top = (self.methodType === "slideDown") ? "-" + self.config.headerBarHeight + "px" : 0;
     self.$element.css({
-      "top": "-" + self.config.headerBarHeight + "px",
+      "top": top,
       "visibility": "visible",
       "opacity": self.config.opacity,
       "width": self.config.width,
@@ -130,8 +138,9 @@
 
   };
 
-  Plugin.prototype.init = function () {
+  Plugin.prototype.init = function (type) {
 
+    this.methodType = type;
     this.config = $.extend({}, this.defaults, this.options);
     if (this.config.headerClone === true) {
       this.cloneHeader();
@@ -146,12 +155,20 @@
 
   };
 
-  $.fn.cbSlideDownHeader = function (options) {
+  $.extend($.fn, {
 
-    return this.each(function (i) {
-      new Plugin(this, options, i).init();
-    });
+    cbSlideDownHeader: function (options) {
+      return this.each(function () {
+        new Plugin(this, options).init("slideDown");
+      });
+    },
 
-  };
+    cbSlideUpHeader: function (options) {
+      return this.each(function () {
+        new Plugin(this, options).init("slideUp");
+      });
+    }
+
+  });
 
 }));
