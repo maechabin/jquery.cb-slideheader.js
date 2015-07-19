@@ -16,11 +16,12 @@
     color: #fff;
   }
   </style>
-  <link rel="stylesheet" href="src/cb-slidedown-header.css">
+  <link rel="stylesheet" href="../src/cb-slideheader.css">
 </head>
 
 <body>
-  <header class="cb-header"><div style="position: relative; bottom: 0;">header</div></header>
+  <header class="cb-header aaa"><div style="position: relative; bottom: 0;">header</div></header>
+  <header class="cb-header bbb"><div style="position: relative; bottom: 0;">header</div></header>
   <div style="background-color: #eee;" class="cb-header2">
     a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
 
@@ -31,11 +32,16 @@
     a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
   </div>
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="src/cb-slidedown-header.js"></script>
+  <script src="../src/cb-slideheader.js"></script>
   <script>
-  $(".cb-header").cbSlideUpHeader({
+  $(".aaa").cbSlideDownHeader({
     //headerClone: true,
     fullscreenView: true
+  });
+  $(".bbb").cbSlideUpHeader({
+    //headerClone: true,
+    //fullscreenView: true
+    //slideDownCallback: function () {alert("aaa");}
   });
   </script>
 </body>
