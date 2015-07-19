@@ -1,0 +1,11 @@
+/**
+ * jQuery.cb-slideheader.jp - A jQuery plugin to display or hide headerbar with a sliding motion
+ * @version v0.2.2
+ * @author maechabin <mail@chab.in> http://mae.chab.in/
+ * @license MIT license
+ */
+.cb-header {
+  position: fixed;
+  left: 0;
+  visibility: hidden;
+}
