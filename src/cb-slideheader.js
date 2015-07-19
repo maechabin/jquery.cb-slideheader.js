@@ -36,7 +36,9 @@
       slideDownSpeed: "normal",
       slideUpSpeed: "normal",
       slideDownEasing: "swing",
-      slideUpEasing: "swing"
+      slideUpEasing: "swing",
+      slideDownCallback: function () {},
+      slideUpCallback: function () {}
     };
 
   };
@@ -47,6 +49,8 @@
     var w = $(window);
     var top1 = (self.methodType === "slideDown") ? 0 : "-" + self.config.headerBarHeight + "px";
     var top2 = (self.methodType === "slideDown") ? "-" + self.config.headerBarHeight + "px" : 0;
+    var arg1 = (self.methodType === "slideDown") ? "Down" : "Up";
+    var arg2 = (self.methodType === "slideDown") ? "Up" : "Down";
     var style1 = {
       "box-shadow": self.config.boxShadow,
       "transition": "box-shadow .9s linear"
@@ -64,7 +68,11 @@
         if (slideFlag === "up") {
           self.$element.stop().animate({
             "top": top1
-          }, self.config.slideDownSpeed, self.config.slideDownEasing).css(css1);
+          },
+            self.config["slide" + arg1 + "Speed"],
+            self.config["slide" + arg1 + "Easing"],
+            self.config["slide" + arg1 + "Callback"]
+          ).css(css1);
           slideFlag = "down";
         }
 
@@ -73,23 +81,17 @@
         if (slideFlag === "down") {
           self.$element.stop().animate({
             "top": top2
-          }, self.config.slideUpSpeed, self.config.slideDownEasing).css(css2);
+          },
+            self.config["slide" + arg2 + "Speed"],
+            self.config["slide" + arg2 + "Easing"],
+            self.config["slide" + arg2 + "Callback"]
+          ).css(css2);
           slideFlag = "up";
         }
 
       }
     });
 
-  };
-
-  Plugin.prototype.cloneHeader = function () {
-    var self = this;
-    var clone = self.$element.clone(true);
-    clone.insertAfter(self.$element)
-      .removeClass("cb-header")
-      .css({
-        "z-index": 9999
-      });
   };
 
   Plugin.prototype.setStyle = function () {
@@ -102,6 +104,16 @@
       "width": self.config.width,
       "z-index": self.config.zIndex
     });
+  };
+
+  Plugin.prototype.cloneHeader = function () {
+    var self = this;
+    var clone = self.$element.clone(true);
+    clone.insertAfter(self.$element)
+      .removeClass("cb-header")
+      .css({
+        "z-index": 9999
+      });
   };
 
   Plugin.prototype.changeHeaderHeight = function () {
