@@ -9,20 +9,27 @@ var pkg = require("./package.json");
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
-  ' * @link <%= pkg.homepage %>',
+  ' * @author <%= pkg.author %>',
   ' * @license <%= pkg.license %>',
   ' */',
   ''].join("\n");
 
 console.log(banner);
 
-gulp.task("uglify", function () {
+gulp.task("js", function () {
   gulp.src("./src/*.js")
+    .pipe(header(banner, {pkg: pkg}))
     .pipe(gulp.dest("./dist"))
-    .pipe(concat("jquery.cb-slideheader.min.js"))
+    .pipe(concat("jquery.cbslideheader.min.js"))
     .pipe(uglify())
     .pipe(header(banner, {pkg: pkg}))
     .pipe(gulp.dest("./dist"))
 });
 
-gulp.task("default", ["uglify"]);
+gulp.task("css", function () {
+  gulp.src("./src/*.css")
+    .pipe(header(banner, {pkg: pkg}))
+    .pipe(gulp.dest("./dist"))
+});
+
+gulp.task("default", ["js", "css"]);
