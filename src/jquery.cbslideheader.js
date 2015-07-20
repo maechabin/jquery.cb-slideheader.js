@@ -66,6 +66,7 @@
       if (w.scrollTop() > self.config.slidePoint) {
 
         if (slideFlag === "up") {
+          slideFlag = "down";
           self.$element.stop().animate({
             "top": top1
           },
@@ -73,12 +74,12 @@
             self.config["slide" + arg1 + "Easing"],
             self.config["slide" + arg1 + "Callback"]
           ).css(css1);
-          slideFlag = "down";
         }
 
       } else {
 
         if (slideFlag === "down") {
+          slideFlag = "up";
           self.$element.stop().animate({
             "top": top2
           },
@@ -86,7 +87,6 @@
             self.config["slide" + arg2 + "Easing"],
             self.config["slide" + arg2 + "Callback"]
           ).css(css2);
-          slideFlag = "up";
         }
 
       }
