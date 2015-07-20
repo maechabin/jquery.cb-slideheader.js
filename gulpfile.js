@@ -14,8 +14,6 @@ var banner = ['/**',
   ' */',
   ''].join("\n");
 
-console.log(banner);
-
 gulp.task("js", function () {
   gulp.src("./src/*.js")
     .pipe(header(banner, {pkg: pkg}))
