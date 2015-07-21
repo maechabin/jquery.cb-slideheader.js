@@ -17,49 +17,18 @@
   }
   </style>
   <link rel="stylesheet" href="../dist/cbslideheader.css">
-  <link rel="stylesheet" href="qunit-1.18.0.css">
-  <script src="qunit-1.18.0.js"></script>
+  <link rel="stylesheet" href="../node_modules/qunitjs/qunit/qunit.css">
+  <script src="../node_modules/qunitjs/qunit/qunit.js"></script>
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="../dist/jquery.cbslideheader.min.js"></script>
-  <script>
-  QUnit.module("slide_down", {
-
-    beforeEach: function () {
-      this.event = $.Event("scroll");
-      this.header = $(".header")
-      this.header.cbSlideDownHeader();
-    }
-
-  });
-  QUnit.test("メソッドを実行する要素のTOPの値", function (assert) {
-    assert.equal(this.header.css("top"), "-56px", "Passed!!");
-  });
-
-  QUnit.test("メソッドを実行する要素のTOPの値", function (assert) {
-    scrollTo(100, 100);
-    console.log($(window).scrollTop());
-    assert.ok(this.header.css("top") > "0px", "Passed!!");
-  });
-
-  QUnit.module("slide_up", {
-
-    beforeEach: function () {
-      this.event = $.Event("scroll");
-      this.header = $(".header")
-      this.header.cbSlideUpHeader();
-    }
-
-  });
-  QUnit.test("メソッドを実行する要素のTOPの値", function (assert) {
-    assert.equal(this.header.css("top"), "0px", "Passed!!");
-  });
-  </script>
+  <script src="test.js"></script>
 </head>
 
-<body>
+<body style="height: 1000px;">
   <div id="qunit"></div>
   <div id="qunit-fixture">
-    <header class="cb-header header">header</header>
+    <header class="cb-header header1">header1</header>
+    <header class="cb-header header2">header2</header>
     <div style="background-color: #eee;" class="cb-header2"></div>
     <div style="height: 4000px"></div>
   </div>
