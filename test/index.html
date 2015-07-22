@@ -7,6 +7,7 @@
   body {
     padding: 0;
     margin: 0;
+    height: 1000px;
   }
   header {
     background-color: #000;
@@ -20,17 +21,16 @@
   <link rel="stylesheet" href="../node_modules/qunitjs/qunit/qunit.css">
   <script src="../node_modules/qunitjs/qunit/qunit.js"></script>
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="../dist/jquery.cbslideheader.min.js"></script>
+  <script src="../dist/jquery.cbslideheader.js"></script>
   <script src="test.js"></script>
 </head>
 
-<body style="height: 1000px;">
+<body>
   <div id="qunit"></div>
   <div id="qunit-fixture">
-    <header class="cb-header header1">header1</header>
-    <header class="cb-header header2">header2</header>
-    <div style="background-color: #eee;" class="cb-header2"></div>
-    <div style="height: 4000px"></div>
+      <header class="cb-header header1">header1</header>
+      <header class="cb-header header2">header2</header>
+      <div style="background-color: #eee;" class="cb-header2"></div>
   </div>
 </body>
 

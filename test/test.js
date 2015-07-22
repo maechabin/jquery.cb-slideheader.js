@@ -6,6 +6,9 @@
     beforeEach: function () {
       this.header1 = $(".header1");
       this.header1.cbSlideDownHeader();
+      this.header2 = $(".header2");
+      this.header2.cbSlideUpHeader();
+      window.scrollTo(0, 0);
     }
   });
   QUnit.test("$.fn.cbSlideDownHeader()が読み込まれているか", function (assert) {
@@ -16,9 +19,31 @@
     assert.equal(this.header1.css("top"), "-" + headerHeight + "px", "Passed!!");
   });
   QUnit.test("1000pxスクロールした時のヘッダバーのTOPの値は0以上", function (assert) {
-    window.scroll(0, 1000);
-    console.log(this.header1.offset().top);
-    assert.ok(this.header1.offset().top > 0, "Passed!!");
+
+    var self = this;
+    console.log(self.header1.css("top"));
+    console.log(self.header1.offset().top);
+    assert.ok(self.header1.offset().top === -56, "Passed!!");
+              window.scrollTo(100, 0);
+
+    window.setTimeout(function () {
+      console.log(self.header1.css("top"));
+      console.log(self.header1.offset().top);
+      assert.ok(self.header1.offset().top === 0, "Passed!!");
+
+    }, 1000);
+window.scrollTo(0, 0);
+      console.log(self.header2.css("top"));
+      console.log(self.header2.offset().top);
+      assert.ok(self.header2.css("top") === "0px", "Passed!!");
+            window.scrollTo(100, 0);
+      window.setTimeout(function () {
+        console.log(self.header2.css("top"));
+        console.log(self.header2.offset().top);
+        assert.ok(self.header2.css("top") === "-56px", "Passed!!");
+      }, 3000);
+
+
   });
 
 
@@ -32,12 +57,15 @@
     assert.ok($.fn.cbSlideUpHeader, "Passed!!");
   });
   QUnit.test("メソッドを実行する要素のTOPのデフォルト値は、0pxになっているか", function (assert) {
-    assert.equal(this.header2.css("top"), "0px", "Passed!!");
+    assert.strictEqual(this.header2.css("top"), "0px", "Passed!!");
   });
-  QUnit.test("1000pxスクロールした時のヘッダバーのTOPの値は0以下", function (assert) {
-    window.scroll(0, 1000);
-    console.log(this.header2.css("top"));
-    assert.ok(this.header2.offset().top < 0, "Passed!!");
+  QUnit.test("1000pxスクロールした時のヘッダバーのTOPの値は0以上", function (assert) {
+
+    var self = this;
+
+
+
   });
+
 
 } (jQuery, QUnit, window, document));
