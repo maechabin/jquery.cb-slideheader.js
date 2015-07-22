@@ -16,9 +16,22 @@
     assert.equal(this.header1.css("top"), "-" + headerHeight + "px", "Passed!!");
   });
   QUnit.test("1000pxスクロールした時のヘッダバーのTOPの値は0以上", function (assert) {
-    window.scroll(0, 1000);
-    console.log(this.header1.offset().top);
-    assert.ok(this.header1.offset().top > 0, "Passed!!");
+
+    var self = this;
+    var aaa = function () {
+      window.scroll(0, 1000);
+      $(window).trigger("aaa");
+    };
+      //assert.ok(self.header1.offset().top === -56, "Passed!!");
+      //setTimeout(function () {
+      $(window).on("aaa", function () {
+        console.log(self.header1.css("top"));
+        console.log(self.header1.offset().top);
+        assert.ok(self.header1.offset().top === 0, "Passed!!");
+      });
+      //}, 1000);
+    aaa();
+
   });
 
 
@@ -35,9 +48,17 @@
     assert.equal(this.header2.css("top"), "0px", "Passed!!");
   });
   QUnit.test("1000pxスクロールした時のヘッダバーのTOPの値は0以下", function (assert) {
+
+    var self = this;
+    console.log(self.header2.offset().top);
+    assert.ok(self.header2.offset().top === 0, "Passed!!");
     window.scroll(0, 1000);
-    console.log(this.header2.css("top"));
-    assert.ok(this.header2.offset().top < 0, "Passed!!");
+
+    setTimeout(function () {
+      console.log(self.header2.offset().top);
+      assert.ok(self.header2.offset().top === -56, "Passed!!");
+    }, 1000);
+
   });
 
 } (jQuery, QUnit, window, document));
