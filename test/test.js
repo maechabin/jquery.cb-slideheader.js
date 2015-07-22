@@ -21,6 +21,7 @@
   QUnit.test("1000pxスクロールした時のヘッダバーのTOPの値は0以上", function (assert) {
 
     var self = this;
+
     console.log(self.header1.css("top"));
     console.log(self.header1.offset().top);
     assert.ok(self.header1.offset().top === -56, "Passed!!");
@@ -44,6 +45,7 @@ window.scrollTo(0, 0);
       }, 3000);
 
 
+
   });
 
 
@@ -59,11 +61,19 @@ window.scrollTo(0, 0);
   QUnit.test("メソッドを実行する要素のTOPのデフォルト値は、0pxになっているか", function (assert) {
     assert.strictEqual(this.header2.css("top"), "0px", "Passed!!");
   });
-  QUnit.test("1000pxスクロールした時のヘッダバーのTOPの値は0以上", function (assert) {
 
+  QUnit.test("1000pxスクロールした時のヘッダバーのTOPの値は0以下", function (assert) {
+/*
     var self = this;
+    console.log(self.header2.offset().top);
+    assert.ok(self.header2.offset().top === 0, "Passed!!");
+    window.scroll(0, 1000);
 
-
+    setTimeout(function () {
+      console.log(self.header2.offset().top);
+      assert.ok(self.header2.offset().top === -56, "Passed!!");
+    }, 1000);
+*/
 
   });
 
