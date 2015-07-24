@@ -25,10 +25,10 @@
     this.options = options;
     this.defaults = {
       headerBarHeight: this.$element.height(),
+      headerBarWidth: "100%",
       header2SelectorName: ".cb-header2",
       headerClone: false,
       fullscreenView: false,
-      width: "100%",
       zIndex: 0,
       boxShadow: "none",
       opacity: 1,
