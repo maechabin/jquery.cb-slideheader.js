@@ -1,6 +1,6 @@
 /**
  * jQuery.cb-slideheader.jp - A jQuery plugin to display or hide headerbar with a sliding motion
- * @version v0.2.3
+ * @version v0.2.4
  * @author maechabin <mail@chab.in> http://mae.chab.in/
  * @license MIT license
  */
@@ -39,8 +39,8 @@
       boxShadow: "none",
       opacity: 1,
       slidePoint: 0,
-      slideDownSpeed: "normal",
-      slideUpSpeed: "normal",
+      slideDownDuration: "normal",
+      slideUpDuration: "normal",
       slideDownEasing: "swing",
       slideUpEasing: "swing",
       slideDownCallback: function () {},
