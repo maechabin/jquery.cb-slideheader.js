@@ -31,14 +31,15 @@
     console.log(self.header1.offset().top);
     assert.equal(self.header1.css("top"), "-" + self.headerHeight + "px", "Passed!!");
 
-    window.scroll(0, 10);
+    window.scroll(0, 500);
 
     setTimeout(function () {
       console.log(self.header1.css("top"));
       console.log(self.header1.offset().top);
       assert.equal(self.header1.css("top"), "0px", "Passed!!");
       done();
-    }, 500);
+    }, 1000);
+
   });
 
 
@@ -78,7 +79,7 @@
       console.log(self.header2.offset());
       assert.equal(self.header2.css("top"), "-" + self.headerHeight + "px", "Passed!!");
       done();
-    }, 500);
+    }, 1000);
 });
 
 } (jQuery, QUnit, window, document));
