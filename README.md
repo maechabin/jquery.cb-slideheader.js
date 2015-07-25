@@ -1,11 +1,14 @@
 #jquery.cb-slideheader.js
 
 ## #概要
-jquery.cb-slideheader.jsは、**ページのスクロールに合わせてヘッダーバーをスライドさせて表示/非表示させる機能を実装するためのjQueryプラグイン**です。
+「jquery.cb-slideheader.js」は、**ページのスクロールに合わせてヘッダーバーをスライドさせて表示/非表示させる機能を実装するためのjQueryプラグイン**です。
 
 以下の2つのメソッドを提供します。
 - **.cbSlideDownHeader()メソッド**: ページを下にスクロールすると非表示になっていたヘッダーバーを表示させるメソッド
 - **.cbSlideUpHeader()メソッド**: ページを下にスクロールすると表示されているヘッダーバーを非表示にするメソッド
+
+参考<br>
+http://mae.chab.in/archives/2703
 
 ## #デモ
 
