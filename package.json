@@ -1,9 +1,9 @@
 {
-  "name": "jquery.cb-slideheader.jp",
-  "version": "0.2.5",
+  "name": "jquery.cb-slideheader.js",
+  "version": "0.2.6",
   "description": "A jQuery plugin to display or hide headerbar with a sliding motion",
   "keywords": "jquery-plugin",
-  "main": "./dist/jquery.cbslideheader.js",
+  "main": "./dist/jquery.cbslideheader.min.js",
   "style": "./dist/cbslideheader.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
