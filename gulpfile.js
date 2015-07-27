@@ -4,6 +4,7 @@ var gulp = require("gulp");
 var uglify = require("gulp-uglify");
 var concat = require("gulp-concat");
 var header = require("gulp-header");
+var qunit = require("gulp-qunit");
 
 var pkg = require("./package.json");
 var banner = ['/**',
@@ -28,6 +29,11 @@ gulp.task("css", function () {
   gulp.src("./src/*.css")
     .pipe(header(banner, {pkg: pkg}))
     .pipe(gulp.dest("./dist"))
+});
+
+gulp.task('test', function() {
+    gulp.src('./test/index.html')
+      .pipe(qunit());
 });
 
 gulp.task("default", ["js", "css"]);
