@@ -53,7 +53,7 @@ $ git clone git@github.com:maechabin/jquery.cb-slideheader.js.git 任意のデ�
 
 ### 4. プラグインを実行する
 
-ヘッダーバーに指定したclass名やid名をセレクターにメソッドをセットし、ヘッダーバーより下の位置に記述してプラグインを実行します。
+準備したヘッダーバーに対して、プラグインのメソッドを（ヘッダーバーより下の位置で）実行させます。
 
 ```JavaScript
 // スクロールしてヘッダーバーを表示させる場合
@@ -69,6 +69,7 @@ $(".header1").cbSlideUpHeader();
 
 
 ### ヘッダーバーの表示/非表示に関するオプション
+
 
 <dl>
 <dt>slidePoint {Number}</dt>
