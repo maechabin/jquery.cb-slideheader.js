@@ -38,7 +38,8 @@
       slideDownEasing: "swing",
       slideUpEasing: "swing",
       slideDownCallback: function () {},
-      slideUpCallback: function () {}
+      slideUpCallback: function () {},
+      headroom: false
     };
 
   };
@@ -61,32 +62,71 @@
     var css1 = (self.methodType === "slideDown") ? style1 : style2;
     var css2 = (self.methodType === "slideDown") ? style2 : style1;
     var slideFlag = "up";
+    var scrollStartPosition = 0;
+    var scrollCurrentPosition = 0;
 
     w.on("scroll", function () {
-      if (w.scrollTop() > self.config.slidePoint) {
 
-        if (slideFlag === "up") {
-          slideFlag = "down";
-          self.$element.stop().animate({
-            "top": top1
-          },
-            self.config["slide" + arg1 + "Speed"],
-            self.config["slide" + arg1 + "Easing"],
-            self.config["slide" + arg1 + "Callback"]
-          ).css(css1);
+      if (self.methodType === "slideUp" || self.config.headroom === true) {
+
+        scrollCurrentPosition = w.scrollTop();
+        if (scrollCurrentPosition > scrollStartPosition) {
+
+          if (slideFlag === "up") {
+            slideFlag = "down";
+            self.$element.stop().animate({
+              "top": top1
+            },
+              self.config["slide" + arg1 + "Speed"],
+              self.config["slide" + arg1 + "Easing"],
+              self.config["slide" + arg1 + "Callback"]
+            ).css(css1);
+          }
+
+        } else {
+
+          if (slideFlag === "down") {
+            slideFlag = "up";
+            self.$element.stop().animate({
+              "top": top2
+            },
+              self.config["slide" + arg2 + "Speed"],
+              self.config["slide" + arg2 + "Easing"],
+              self.config["slide" + arg2 + "Callback"]
+            ).css(css2);
+          }
+
         }
+        scrollStartPosition = scrollCurrentPosition;
 
       } else {
 
-        if (slideFlag === "down") {
-          slideFlag = "up";
-          self.$element.stop().animate({
-            "top": top2
-          },
-            self.config["slide" + arg2 + "Speed"],
-            self.config["slide" + arg2 + "Easing"],
-            self.config["slide" + arg2 + "Callback"]
-          ).css(css2);
+        if (w.scrollTop() > self.config.slidePoint) {
+
+          if (slideFlag === "up") {
+            slideFlag = "down";
+            self.$element.stop().animate({
+              "top": top1
+            },
+              self.config["slide" + arg1 + "Speed"],
+              self.config["slide" + arg1 + "Easing"],
+              self.config["slide" + arg1 + "Callback"]
+            ).css(css1);
+          }
+
+        } else {
+
+          if (slideFlag === "down") {
+            slideFlag = "up";
+            self.$element.stop().animate({
+              "top": top2
+            },
+              self.config["slide" + arg2 + "Speed"],
+              self.config["slide" + arg2 + "Easing"],
+              self.config["slide" + arg2 + "Callback"]
+            ).css(css2);
+          }
+
         }
 
       }

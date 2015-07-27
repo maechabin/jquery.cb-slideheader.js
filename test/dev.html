@@ -16,7 +16,7 @@
     color: #fff;
   }
   </style>
-  <link rel="stylesheet" href="../dist/cbslideheader.css">
+  <link rel="stylesheet" href="../src/cbslideheader.css">
 </head>
 
 <body>
@@ -25,11 +25,10 @@
   <div style="height: 2000px"></div>
 
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="../dist/jquery.cbslideheader.min.js"></script>
+  <script src="../src/jquery.cbslideheader.js"></script>
   <script>
   $(".header").cbSlideUpHeader({
-    "slideDownDuration": "slow",
-    "slideUpDuration": "fast"
+    "headroom": true
   });
   </script>
 </body>
