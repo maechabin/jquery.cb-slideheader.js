@@ -31,9 +31,9 @@ gulp.task("css", function () {
     .pipe(gulp.dest("./dist"))
 });
 
-gulp.task('test', function() {
-    gulp.src('./test/index.html')
-      .pipe(qunit());
+gulp.task("test", function () {
+  gulp.src("./test/index.html")
+    .pipe(qunit());
 });
 
 gulp.task("default", ["js", "css"]);
