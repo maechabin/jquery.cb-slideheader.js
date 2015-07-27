@@ -83,6 +83,9 @@ $(".header1").cbSlideUpHeader();
 
 <dt>headerClone {Boolean}</dt>
 <dd>slideDownHeader()メソッドを適用させると、ヘッダーバーは初期状態では非表示となります。初期状態でも表示させておきたい場合は、このオプションをtureにします。ヘッダーバーを複製して、常に表示されるヘッダーバーを生成します。デフォルト値は`false`。</dd>
+
+<dt>headroom {Boolean}</dt>
+<dd>slideUpHeader()メソッド専用のオプションです。trueにした場合、ページを下にスクールするとヘッダバーが隠れ、上にスクロールすると現れるようになります。headroom.jsというプラグインと同じような動きを実現します。デフォルト値は`false`。</dd>
 </dl>
 
 ### ヘッダーバーのスタイルに関するオプション
@@ -146,6 +149,9 @@ $(".header1").cbSlideUpHeader();
 ヘッダーバーを2つ用意し、cbSlideDownHeader()メソッドとcbSlideDownHeader()メソッドで相互に見え隠れさせる<br>
 http://jsrun.it/maechabin/kyhg
 
+ページを下にスクールすると隠れ、上にスクロールすると現れるヘッダバー<br>
+http://jsrun.it/maechabin/3EnZ
+
 全画面表示（その1）<br>
 http://jsrun.it/maechabin/kGYH
 
@@ -155,5 +161,11 @@ http://jsrun.it/maechabin/sgJz
 コールバック関数を指定<br>
 http://jsrun.it/maechabin/4Sh1
 
+
 ## #ライセンス
 MIT license
+
+## #アップデート情報
+
+### ver. 0.3.0
+- headroomオプション追加
