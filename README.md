@@ -35,14 +35,12 @@ $ npm install --save-dev jquery.cb-slideheader.js
 ```
 
 機能の実装に使用するファイルは以下のcssファイルとjsファイルの2つとなります。
-- dist/cbslideheader.css
 - dist/jquery.cbslideheader.min.js
 
 
 ### 2. プラグイン & 外部ファイルを読み込む
 
 ```html
-<link rel="stylesheet" href="cbslideheader.css">
 <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="jquery.cbslideheader.min.js"></script>
 ```
@@ -56,8 +54,23 @@ $ npm install --save-dev jquery.cb-slideheader.js
 ```html
 <header class="cb-header header1">header1</header>
 ```
+### 4. CSSを指定する
 
-### 4. プラグインを実行する
+ヘッダーバーに付与したclass属性`「cb-header」`に対して、以下を指定します。ページを読み込んだ初期表示でヘッダーバーを非表示にしておきたい場合は`visibility: hidden;`を指定しておきます。
+
+```css
+.cb-header {
+  position: fixed;
+  left: 0;
+  /*
+    ページを読み込んだ初期表示でヘッダーバーを
+    非表示にしておきたい場合は以下を指定
+  */
+  visibility: hidden;
+}
+```
+
+### 5. プラグインを実行する
 
 準備したヘッダーバーに対して、プラグインのメソッドを（ヘッダーバーより下の位置で）実行させます。
 

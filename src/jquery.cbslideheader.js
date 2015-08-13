@@ -30,7 +30,7 @@
       header2SelectorName: ".cb-header2",
       headerClone: false,
       fullscreenView: false,
-      zIndex: 0,
+      zIndex: 9999,
       boxShadow: "none",
       opacity: 1,
       slidePoint: 0,
@@ -83,7 +83,7 @@
       if (self.methodType === "slideUp" && self.config.headroom === true) {
 
         scrollCurrentPosition = w.scrollTop();
-        if (scrollCurrentPosition > scrollStartPosition) {
+        if (scrollCurrentPosition > scrollStartPosition && scrollCurrentPosition > 0) {
 
           if (self.slideFlag === "up") {
             self.slide.call(self, self.slideFlag, top1, arg1, css1);
@@ -137,7 +137,7 @@
     clone.insertAfter(self.$element)
       .removeClass("cb-header")
       .css({
-        "z-index": 9999
+        "z-index": 10000
       });
   };
 
