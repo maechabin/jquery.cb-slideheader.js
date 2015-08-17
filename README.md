@@ -34,7 +34,7 @@ npm経由でも入手可能です。
 $ npm install --save-dev jquery.cb-slideheader.js
 ```
 
-機能の実装に使用するファイルは以下のcssファイルとjsファイルの2つとなります。
+機能の実装に使用するファイルは以下のjsファイルとなります。
 - dist/jquery.cbslideheader.min.js
 
 
