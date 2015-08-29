@@ -31,7 +31,7 @@ $ git clone git@github.com:maechabin/jquery.cb-slideheader.js.git 任意のデ�
 
 npm経由でも入手可能です。
 ```
-$ npm install --save-dev cbslideheader-js
+$ npm install --save-dev cbslideheader
 ```
 
 機能の実装に使用するファイルは以下のjsファイルとなります。
