@@ -1,6 +1,6 @@
 /**
  * cbslideheader - A jQuery plugin to display or hide headerbar with a sliding motion
- * @version v0.3.5
+ * @version v0.3.6
  * @author maechabin <mail@chab.in> http://mae.chab.in/
  * @license MIT license
  */
