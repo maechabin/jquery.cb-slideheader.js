@@ -1,6 +1,6 @@
 /**
- * jquery.cb-slideheader.js - A jQuery plugin to display or hide headerbar with a sliding motion
- * @version v0.3.3
+ * cbslideheader - A jQuery plugin to display or hide headerbar with a sliding motion
+ * @version v0.3.5
  * @author maechabin <mail@chab.in> http://mae.chab.in/
  * @license MIT license
  */
@@ -53,14 +53,18 @@
 
   Plugin.prototype.slide = function (slideFlag, top, arg, css) {
 
+    var self = this;
     this.slideFlag = (slideFlag === "up") ? "down" : "up";
-    this.$element.stop().animate({
-      "top": top
-    },
-      this.config["slide" + arg + "Speed"],
-      this.config["slide" + arg + "Easing"],
-      this.config["slide" + arg + "Callback"]
-    ).css(css);
+
+    window.setTimeout(function () {
+      self.$element.stop().animate({
+        "top": top
+      },
+        self.config["slide" + arg + "Speed"],
+        self.config["slide" + arg + "Easing"],
+        self.config["slide" + arg + "Callback"]
+      ).css(css);
+    }, 200);
 
   };
 
@@ -121,6 +125,7 @@
         }
 
       }
+
     });
 
   };
