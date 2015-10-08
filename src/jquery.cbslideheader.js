@@ -141,6 +141,7 @@
     var clone = self.$element.clone(true);
     clone.insertAfter(self.$element)
       .removeClass("cb-header")
+      .addClass("cb-header1")
       .css({
         "z-index": 10000
       });
