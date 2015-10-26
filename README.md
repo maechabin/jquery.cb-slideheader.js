@@ -10,7 +10,7 @@
 参考<br>
 http://mae.chab.in/archives/2703
 
-English her<br>
+English here<br>
 http://www.jqueryscript.net/menu/jQuery-Plugin-To-Auto-Show-Hide-Site-Header-cb-slideheader-js.html
 
 ## #デモ
