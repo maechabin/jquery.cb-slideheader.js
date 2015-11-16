@@ -20,7 +20,13 @@
     "gulp-header": "^1.2.2",
     "gulp-qunit": "^1.2.1",
     "gulp-uglify": "^1.2.0",
-    "jquery": "^1.11.2",
     "qunitjs": "^1.18.0"
-  }
+  },
+  "dependencies": {
+    "jquery": "^1.11.2"
+  },
+  "bugs": {
+    "url": "https://github.com/maechabin/jquery.cb-slideheader.js/issues"
+  },
+  "homepage": "https://github.com/maechabin/jquery.cb-slideheader.js"
 }
