@@ -10,6 +10,9 @@
 参考<br>
 http://mae.chab.in/archives/2703
 
+English here<br>
+http://www.jqueryscript.net/menu/jQuery-Plugin-To-Auto-Show-Hide-Site-Header-cb-slideheader-js.html
+
 ## #デモ
 
 スクロールするとヘッダーバーが表示されるサンプル<br>
@@ -31,7 +34,7 @@ $ git clone git@github.com:maechabin/jquery.cb-slideheader.js.git 任意のデ�
 
 npm経由でも入手可能です。
 ```
-$ npm install --save-dev cbslideheader
+$ npm install --save cbslideheader
 ```
 
 機能の実装に使用するファイルは以下のjsファイルとなります。
