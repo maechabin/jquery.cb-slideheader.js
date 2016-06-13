@@ -15,7 +15,7 @@
   });
 
   QUnit.test("$.fn.cbSlideDownHeader()が読み込まれているか", function (assert) {
-    assert.ok($.fn.cbSlideDownHeader, "Passed!!")
+    assert.ok($.fn.cbSlideDownHeader, "Passed!!");
   });
 
   QUnit.test("メソッドを実行する要素のTOPのデフォルト値は、要素の高さの負の値になっているか", function (assert) {
@@ -80,6 +80,6 @@
       assert.equal(self.header2.css("top"), "-" + self.headerHeight + "px", "Passed!!");
       done();
     }, 1000);
-});
+  });
 
 } (jQuery, QUnit, window, document));
