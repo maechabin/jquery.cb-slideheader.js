@@ -39,24 +39,21 @@
   };
 
   Plugin.prototype.slide = function (slideFlag, top, arg, css) {
-
     var self = this;
     this.slideFlag = (slideFlag === 'up') ? 'down' : 'up';
 
     window.setTimeout(function () {
       self.$element.stop().animate({
-        'top': top
+        top: top
       },
         self.config['slide' + arg + 'Speed'],
         self.config['slide' + arg + 'Easing'],
         self.config['slide' + arg + 'Callback']
       ).css(css);
     }, 200);
-
   };
 
   Plugin.prototype.slideHeader = function () {
-
     var self = this;
     var w = $(window);
     var top1 = (self.methodType === 'slideDown') ? 0 : '-' + self.config.headerBarHeight + 'px';
@@ -65,7 +62,7 @@
     var arg2 = (self.methodType === 'slideDown') ? 'Up' : 'Down';
     var style1 = {
       'box-shadow': self.config.boxShadow,
-      'transition': 'box-shadow .9s linear'
+      transition: 'box-shadow .9s linear'
     };
     var style2 = {
       'box-shadow': 'none'
@@ -78,7 +75,8 @@
     w.on('scroll', function () {
       if (self.methodType === 'slideUp' && self.config.headroom === true) {
         scrollCurrentPosition = w.scrollTop();
-        if (scrollCurrentPosition > scrollStartPosition && scrollCurrentPosition > 0) {
+        if (scrollCurrentPosition > scrollStartPosition
+          && scrollCurrentPosition > self.config.slidePoint) {
           if (self.slideFlag === 'up') {
             self.slide.call(self, self.slideFlag, top1, arg1, css1);
           }
