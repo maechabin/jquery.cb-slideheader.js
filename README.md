@@ -184,7 +184,7 @@ MIT license
 ## #アップデート情報
 
 ### ver. 0.3.8
-- headroomオプションがtureの場合でもslidePointオプションがで起用されるように修正
+- headroomオプションがtureの場合もslidePointオプションが適用されるように修正
 
 ### ver. 0.3.7
 - headerCloneオプションで複製されるヘッダーバーに"cb-header1"というclass名を付与するように対応
