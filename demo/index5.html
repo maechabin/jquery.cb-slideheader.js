@@ -3,26 +3,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <style>
-  body {
-    padding: 0;
-    margin: 0;
-  }
-  .header1 {
-    background-color: #000;
-    line-height: 56px;
-    text-align: center;
-    width: 100%;
-    color: #fff;
-  }
-  .header2 {
-    background-color: brown;
-    line-height: 100px;
-    text-align: center;
-    width: 100%;
-    color: #fff;
-  }
-  </style>
+  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="../dist/cbslideheader.css">
 </head>
 
@@ -35,9 +16,15 @@
   <script src="../dist/jquery.cbslideheader.min.js"></script>
   <script>
   $(".header1").cbSlideDownHeader({
-    zIndex: 1,
-    headerClone: true,
-    fullscreenView: true
+    zIndex: 1
+    //headerClone: true,
+    //fullscreenView: true
+  });
+  $(".header2").cbSlideUpHeader({
+    zIndex: 0
+    //headerClone: true,
+    //fullscreenView: true
+    //slideDownCallback: function () {alert("aaa");}
   });
   </script>
 </body>
