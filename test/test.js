@@ -2,7 +2,7 @@
 
   "use strict";
 
-  QUnit.module("slide_down", {
+  QUnit.module("slide_downのテスト", {
     beforeEach: function () {
       window.scroll(0, 0);
       this.header1 = $(".header1");
@@ -14,11 +14,11 @@
     }
   });
 
-  QUnit.test("$.fn.cbSlideDownHeader()が読み込まれているか", function (assert) {
+  QUnit.test("$.fn.cbSlideDownHeader()が読み込まれている", function (assert) {
     assert.ok($.fn.cbSlideDownHeader, "Passed!!");
   });
 
-  QUnit.test("メソッドを実行する要素のTOPのデフォルト値は、要素の高さの負の値になっているか", function (assert) {
+  QUnit.test("メソッドを実行する要素のTOPのデフォルト値は、要素の高さの負の値になっている", function (assert) {
     assert.equal(this.header1.css("top"), "-" + this.headerHeight + "px", "Passed!!");
   });
 
@@ -43,7 +43,7 @@
   });
 
 
-  QUnit.module("slide_up", {
+  QUnit.module("slide_upのテスト", {
     beforeEach: function () {
       window.scroll(0, 0);
       this.header2 = $(".header2");
@@ -55,11 +55,11 @@
     }
   });
 
-  QUnit.test("$.fn.cbSlideUpHeader()が読み込まれているか", function (assert) {
+  QUnit.test("$.fn.cbSlideUpHeader()が読み込まれている", function (assert) {
     assert.ok($.fn.cbSlideUpHeader, "Passed!!");
   });
 
-  QUnit.test("メソッドを実行する要素のTOPのデフォルト値は、0pxになっているか", function (assert) {
+  QUnit.test("メソッドを実行する要素のTOPのデフォルト値は、0pxになっている", function (assert) {
     assert.strictEqual(this.header2.css("top"), "0px", "Passed!!");
   });
 
